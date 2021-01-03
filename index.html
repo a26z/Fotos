@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<title>Fotos</title>
+</head>
+
+<body>
+	<main>
+		<article class="container"></article> 
+		<article class="modal">
+			<section class="content">
+				<span class="close">&times;</span>
+				<img id="modalimage" alt="Modal Image">
+			</section>
+		</article>
+	</main>
+	<!-- ============== Javascript ============== -->
+	<script src="js/main.js"></script>
+	<script>
+		// add image items to container
+		let imgs = [
+			["img/0.jpg", "Atardecer"],
+			["img/2.jpg", "Isla"],
+			["img/10.jpg", "Almuerzo"],
+			["img/3.jpg", "Hafenstadt"],
+			["img/4.jpg", "Rosa"],
+			["img/7.jpg", "Trabant"],
+			["img/6.jpg", "Hansestadt"],
+			["img/11.jpg", "Tranvía"],
+			["img/8.jpg", "Tarde"],
+			["img/9.jpg", "Bar"],
+			["img/5.jpg", "Marktplatz"],
+			["img/1.jpg", "Bolígrafos"]
+		];
+		imgs.forEach(pic => {
+			let figure = document.createElement("FIGURE");
+			let caption = document.createElement("FIGCAPTION");
+			figure.setAttribute("id", pic[1]);
+			document.querySelector(".container").appendChild(figure);
+			let image = new Image();
+			image.src = pic[0];
+			image.setAttribute("class", "vorschau trigger");
+			image.setAttribute("alt", pic[1]);
+			document.getElementById(pic[1]).appendChild(image);
+			document.getElementById(pic[1]).appendChild(caption);
+			let captionText = document.createTextNode(pic[1]);
+			caption.appendChild(captionText);
+		});
+
+		// modal
+		const modal = document.querySelector(".modal");
+		const close = document.querySelector(".close");
+
+		function toggleModal() {
+			let image = document.getElementById("modalimage");
+			image.src = this.src;
+			document.querySelector(".content").appendChild(image);
+			modal.classList.toggle("show-modal");
+		}
+
+		document.querySelectorAll(".trigger").forEach(pic => {
+			pic.addEventListener("click", toggleModal)
+		})
+
+		close.addEventListener("click", function() {
+			modal.classList.toggle("show-modal")
+		});
+
+		window.addEventListener("click", function(e) {
+			if(e.target === modal) modal.classList.toggle("show-modal")
+		})
+	</script>
+</body>
+
+</html>

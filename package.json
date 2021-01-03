@@ -1,0 +1,17 @@
+{
+  "name": "PictureGallery",
+  "version": "1.0.0",
+  "description": "Simple picture gallery",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css-build": "",
+    "serve": "browser-sync --files index.html,css/main.css,js/*.js",
+    "start": ""
+  },
+  "author": "Christian Schmidt",
+  "license": "MIT"
+}

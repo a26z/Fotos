@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    background-color: aliceblue;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 50px;
+    background-color: aliceblue;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+}
+
+figure {
+    margin: 0;
+    background-color: aliceblue;
+}
+
+.vorschau {
+    max-width: 100%;
+    margin-top: 10px;
+    transition: filter 0.3s ease-in-out, margin .3s linear;
+    filter: grayscale(100%);
+    box-shadow: 10px 12px 11px rgba(0, 0, 0, 0.07),
+        10px 14px 12px rgba(0, 0, 0, 0.07),
+        10px 18px 14px rgba(0, 0, 0, 0.07),
+        10px 26px 18px rgba(0, 0, 0, 0.07),
+        10px 32px 26px rgba(0, 0, 0, 0.07);
+}
+
+.vorschau:hover {
+    margin-top: 0;
+    filter: grayscale(0%);
+}
+
+figcaption {
+    text-align: center;
+    font-family: monospace;
+    color: #000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Modal */
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    /* se agranda al desaparecer: */
+    transform: scale(1.05);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.3s;
+}
+
+.content {
+    position: absolute;
+    /* las próximas tres para centrar el modal-content:  */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: auto;
+    border-radius: 0.5rem;
+}
+
+.close {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+
+.close:hover {
+    background-color: darkgray;
+}
+
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
