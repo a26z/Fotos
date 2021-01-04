@@ -10,7 +10,7 @@
 
 <body>
 	<main>
-		<article class="container"></article> 
+		<article class="container"></article>
 		<article class="modal">
 			<section class="content">
 				<span class="close">&times;</span>
@@ -19,35 +19,20 @@
 		</article>
 	</main>
 	<!-- ============== Javascript ============== -->
-	<script src="js/main.js"></script>
-	<script>
-		// add image items to container
-		let imgs = [
-			["img/0.jpg", "Atardecer"],
-			["img/2.jpg", "Isla"],
-			["img/10.jpg", "Almuerzo"],
-			["img/3.jpg", "Hafenstadt"],
-			["img/4.jpg", "Rosa"],
-			["img/7.jpg", "Trabant"],
-			["img/6.jpg", "Hansestadt"],
-			["img/11.jpg", "Tranvía"],
-			["img/8.jpg", "Tarde"],
-			["img/9.jpg", "Bar"],
-			["img/5.jpg", "Marktplatz"],
-			["img/1.jpg", "Bolígrafos"]
-		];
-		imgs.forEach(pic => {
+	<script type="module">
+		import { images } from './js/images.js';
+		images.forEach(pic => {
 			let figure = document.createElement("FIGURE");
 			let caption = document.createElement("FIGCAPTION");
-			figure.setAttribute("id", pic[1]);
+			figure.setAttribute("id", pic.alt);
 			document.querySelector(".container").appendChild(figure);
 			let image = new Image();
-			image.src = pic[0];
+			image.src = pic.path;
 			image.setAttribute("class", "vorschau trigger");
-			image.setAttribute("alt", pic[1]);
-			document.getElementById(pic[1]).appendChild(image);
-			document.getElementById(pic[1]).appendChild(caption);
-			let captionText = document.createTextNode(pic[1]);
+			image.setAttribute("alt", pic.alt);
+			document.getElementById(pic.alt).appendChild(image);
+			document.getElementById(pic.alt).appendChild(caption);
+			let captionText = document.createTextNode(pic.caption);
 			caption.appendChild(captionText);
 		});
 
