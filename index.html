@@ -25,6 +25,7 @@
 			let figure = document.createElement("FIGURE");
 			let caption = document.createElement("FIGCAPTION");
 			figure.setAttribute("id", pic.alt);
+			figure.setAttribute("class", "magnify");
 			document.querySelector(".container").appendChild(figure);
 			let image = new Image();
 			image.src = pic.path;

@@ -24,8 +24,7 @@ figure {
 
 .vorschau {
     max-width: 100%;
-    margin-top: 10px;
-    transition: filter 0.3s ease-in-out, margin .3s linear;
+    transition: filter 0.3s ease-in-out, transform 0.3s;
     filter: grayscale(100%);
     box-shadow: 10px 12px 11px rgba(0, 0, 0, 0.07),
         10px 14px 12px rgba(0, 0, 0, 0.07),
@@ -35,8 +34,9 @@ figure {
 }
 
 .vorschau:hover {
-    margin-top: 0;
+    transform: scale(1.04);
     filter: grayscale(0%);
+    transition: transform 0.3s linear;
 }
 
 figcaption {

@@ -17,7 +17,7 @@ export const images = [
     {
         path: 'img/3.jpg',
         alt: 'Hafenstadt',
-        caption: 'Hinter diesem Gebäude eine unvorstellbare Maschine.'
+        caption: 'Hinter diesem Gebäude eine grausame Maschine.'
     },
     {
         path: 'img/4.jpg',
