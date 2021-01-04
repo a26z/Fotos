@@ -50,6 +50,9 @@ figcaption {
 /* Modal */
 
 .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     left: 0;
     top: 0;
@@ -64,11 +67,6 @@ figcaption {
 }
 
 .content {
-    position: absolute;
-    /* las próximas tres para centrar el modal-content:  */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: white;
     padding: 1rem 1.5rem;
     width: auto;
