@@ -12,30 +12,39 @@
 	<main>
 		<article class="container"></article>
 		<article class="modal">
-			<section class="content">
+			<!-- <section class="content"> -->
+				<figure class="content">
+					<img id="modalimage" alt="Modal Image">
+				</figure>
+				<figcaption class="modal-caption"></figcaption>
 				<span class="close">&times;</span>
-				<img id="modalimage" alt="Modal Image">
-			</section>
+			<!-- </section> -->
 		</article>
+		<div id="test"></div>
 	</main>
 	<!-- ============== Javascript ============== -->
 	<script type="module">
 		import { images } from './js/images.js';
+		let docFragment = new DocumentFragment();
+
 		images.forEach(pic => {
 			let figure = document.createElement("FIGURE");
 			let caption = document.createElement("FIGCAPTION");
 			figure.setAttribute("id", pic.alt);
-			figure.setAttribute("class", "magnify");
-			document.querySelector(".container").appendChild(figure);
-			let image = new Image();
+			figure.className = 'magnify';
+			let image = document.createElement("IMG");
 			image.src = pic.path;
-			image.setAttribute("class", "vorschau trigger");
+			image.classList.add('vorschau', 'trigger');
 			image.setAttribute("alt", pic.alt);
-			document.getElementById(pic.alt).appendChild(image);
-			document.getElementById(pic.alt).appendChild(caption);
-			let captionText = document.createTextNode(pic.caption);
+			image.setAttribute("data-caption", pic.caption)
+			figure.appendChild(image);
+			figure.appendChild(caption);
+			let captionText = document.createTextNode(pic.alt);
 			caption.appendChild(captionText);
+            docFragment.appendChild(figure);
 		});
+
+        document.querySelector('.container').appendChild(docFragment);
 
 		// modal
 		const modal = document.querySelector(".modal");
@@ -44,7 +53,10 @@
 		function toggleModal() {
 			let image = document.getElementById("modalimage");
 			image.src = this.src;
+			let caption = document.createTextNode(this.dataset.caption);
+			console.log(caption);
 			document.querySelector(".content").appendChild(image);
+			document.querySelector(".modal-caption").appendChild(caption);
 			modal.classList.toggle("show-modal");
 		}
 

@@ -22,7 +22,7 @@ export const images = [
     {
         path: 'img/4.jpg',
         alt: 'Rose',
-        caption: 'Just a drinking flower.'
+        caption: 'Days of Wine and Roses'
     },
     {
         path: 'img/5.jpg',

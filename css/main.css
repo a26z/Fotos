@@ -34,7 +34,7 @@ figure {
 }
 
 .vorschau:hover {
-    transform: scale(1.04);
+    transform: scale(1.07);
     filter: grayscale(0%);
     transition: transform 0.3s linear;
 }
@@ -44,13 +44,14 @@ figcaption {
     font-family: monospace;
     color: #000;
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 9px;
 }
 
 /* Modal */
 
 .modal {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: fixed;
@@ -68,13 +69,13 @@ figcaption {
 
 .content {
     background-color: white;
-    padding: 1rem 1.5rem;
+    padding: 10px 12px;
     width: auto;
     border-radius: 0.5rem;
 }
 
 .close {
-    float: right;
+    /* float: right; */
     width: 1.5rem;
     line-height: 1.5rem;
     text-align: center;
