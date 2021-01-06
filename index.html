@@ -12,26 +12,30 @@
 	<main>
 		<article class="container"></article>
 		<article class="modal">
-			<!-- <section class="content"> -->
+			<section class="modal-wrapper">
 				<figure class="content">
 					<img id="modalimage" alt="Modal Image">
 				</figure>
 				<figcaption class="modal-caption"></figcaption>
 				<span class="close">&times;</span>
-			<!-- </section> -->
+			</section>
 		</article>
 		<div id="test"></div>
 	</main>
 	<!-- ============== Javascript ============== -->
 	<script type="module">
 		import { images } from './js/images.js';
+
 		let docFragment = new DocumentFragment();
+
+		// ------------------------------------------------------------- gallery
 
 		images.forEach(pic => {
 			let figure = document.createElement("FIGURE");
 			let caption = document.createElement("FIGCAPTION");
-			figure.setAttribute("id", pic.alt);
+			caption.className = 'gallery-caption';
 			figure.className = 'magnify';
+			figure.id = pic.alt;
 			let image = document.createElement("IMG");
 			image.src = pic.path;
 			image.classList.add('vorschau', 'trigger');
@@ -46,16 +50,18 @@
 
         document.querySelector('.container').appendChild(docFragment);
 
-		// modal
+		// ------------------------------------------------------------- modal
+
 		const modal = document.querySelector(".modal");
 		const close = document.querySelector(".close");
+		let caption; // undefined
 
 		function toggleModal() {
+			if(caption) caption.parentNode.removeChild(caption);
 			let image = document.getElementById("modalimage");
 			image.src = this.src;
-			let caption = document.createTextNode(this.dataset.caption);
-			console.log(caption);
 			document.querySelector(".content").appendChild(image);
+			caption = document.createTextNode(this.dataset.caption)
 			document.querySelector(".modal-caption").appendChild(caption);
 			modal.classList.toggle("show-modal");
 		}

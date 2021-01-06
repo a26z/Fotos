@@ -38,13 +38,21 @@ figure {
     filter: grayscale(0%);
     transition: transform 0.3s linear;
 }
-
-figcaption {
+.gallery-caption {
     text-align: center;
     font-family: monospace;
     color: #000;
     font-size: 14px;
     margin-top: 9px;
+}
+
+.modal-caption {
+    text-align: center;
+    font-family: monospace;
+    color: #000;
+    background-color: white;
+    font-size: 14px;
+    margin-top: 0px;
 }
 
 /* Modal */
@@ -67,21 +75,31 @@ figcaption {
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.3s;
 }
 
+.modal-wrapper {
+    display: grid;
+    justify-items: center;
+    padding: 5px;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
 .content {
     background-color: white;
     padding: 10px 12px;
     width: auto;
-    border-radius: 0.5rem;
 }
 
 .close {
     /* float: right; */
-    width: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 50px;
+    width: 3.5rem;
+    line-height: 3.5rem;
     text-align: center;
     cursor: pointer;
-    border-radius: 0.25rem;
+    border-radius: 50%;
     background-color: lightgray;
+    margin-top: 25px;
+    margin-bottom: 5px;
 }
 
 .close:hover {
