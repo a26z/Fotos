@@ -22,12 +22,12 @@ export const images = [
     {
         path: 'img/4.jpg',
         alt: 'Rose',
-        caption: 'Days of Wine and Roses'
+        caption: 'Drinking flower (Days of Wine and Roses).'
     },
     {
         path: 'img/5.jpg',
         alt: 'Marktplatz',
-        caption: 'Can you spot the Japanese tourists taking shots?'
+        caption: 'Can you spot the Japanese tourists taking pictures?'
     },
     {
         path: 'img/6.jpg',
@@ -42,7 +42,7 @@ export const images = [
     {
         path: 'img/8.jpg',
         alt: 'Tarde',
-        caption: 'And perhaps much earlier than one would think.'
+        caption: 'It is much earlier than one would think.'
     },
     {
         path: 'img/9.jpg',
