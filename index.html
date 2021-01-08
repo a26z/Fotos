@@ -17,20 +17,22 @@
 					<img id="modalimage" alt="Modal Image">
 				</figure>
 				<figcaption class="modal-caption"></figcaption>
+				<span class="prev">prev</span>
 				<span class="close">&times;</span>
+				<span class="next">next</span>
 			</section>
 		</article>
 		<div id="test"></div>
 	</main>
 	<!-- ============== Javascript ============== -->
 	<script type="module">
-		import { images } from './js/images.js';
-
+		import { images, count } from './js/images.js';
+		console.log(count);
 		let docFragment = new DocumentFragment();
 
 		// ------------------------------------------------------------- gallery
 
-		images.forEach(pic => {
+		images.forEach((pic, index) => {
 			let figure = document.createElement("FIGURE");
 			let caption = document.createElement("FIGCAPTION");
 			caption.className = 'gallery-caption';
@@ -40,26 +42,27 @@
 			image.src = pic.path;
 			image.classList.add('vorschau', 'trigger');
 			image.setAttribute("alt", pic.alt);
-			image.setAttribute("data-caption", pic.caption)
+			image.setAttribute("data-caption", pic.caption);
 			figure.appendChild(image);
 			figure.appendChild(caption);
 			let captionText = document.createTextNode(pic.alt);
 			caption.appendChild(captionText);
             docFragment.appendChild(figure);
 		});
-
         document.querySelector('.container').appendChild(docFragment);
 
 		// ------------------------------------------------------------- modal
 
 		const modal = document.querySelector(".modal");
 		const close = document.querySelector(".close");
+		const next = document.querySelector(".next");
+		let image = document.getElementById("modalimage");
 		let caption; // undefined
 
 		function toggleModal() {
 			if(caption) caption.parentNode.removeChild(caption);
-			let image = document.getElementById("modalimage");
 			image.src = this.src;
+			image.alt = this.alt;
 			document.querySelector(".content").appendChild(image);
 			caption = document.createTextNode(this.dataset.caption)
 			document.querySelector(".modal-caption").appendChild(caption);
@@ -73,6 +76,27 @@
 		close.addEventListener("click", function() {
 			modal.classList.toggle("show-modal")
 		});
+
+		let nextImage = function() {
+			caption.parentNode.removeChild(caption);
+			let idx = images.findIndex(i => i.alt == image.alt); // OK
+			console.log(idx);
+			if(idx == count-1) {
+				image.src = images[0].path;
+				image.alt = images[0].alt;
+				image.caption = images[0].caption;
+				console.log("> 11");
+			}
+			 else {
+				image.src = images[idx+1].path;
+				image.alt = images[idx+1].alt;
+				image.caption = images[idx+1].caption;
+			}
+			caption = document.createTextNode(image.caption)
+			document.querySelector(".modal-caption").appendChild(caption);
+		}
+		
+		next.addEventListener("click", nextImage);
 
 		window.addEventListener("click", function(e) {
 			if(e.target === modal) modal.classList.toggle("show-modal")

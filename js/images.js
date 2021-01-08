@@ -52,7 +52,7 @@ export const images = [
     {
         path: 'img/10.jpg',
         alt: 'Almuerzo',
-        caption: 'Barras apanadas de pescado con papas cocidas y ensalada de tomate con aceitunas.'
+        caption: 'Pescado con papas cocidas y ensalada de tomate con aceitunas.'
     },
     {
         path: 'img/11.jpg',
@@ -60,3 +60,5 @@ export const images = [
         caption: 'En la reciente actualidad.'
     }
 ]
+
+export const count = images.length;
