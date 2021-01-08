@@ -1,3 +1,3 @@
 # Fotos
 
-A simple picture Gallery (trying out transitions).
+A simple picture gallery (trying out transitions).
