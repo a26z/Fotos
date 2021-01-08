@@ -10,6 +10,14 @@ main {
     background-color: aliceblue;
 }
 
+h1 {
+	font-family: 'Fontdiner Swanky', cursive;
+	font-size: 5em;
+	margin-top: 0;
+	text-align: center;
+	color: brown;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

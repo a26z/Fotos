@@ -27,7 +27,7 @@ export const images = [
     {
         path: 'img/5.jpg',
         alt: 'Marktplatz',
-        caption: 'Where japanese tourists take shots.'
+        caption: 'Can you spot the Japanese tourists taking shots?'
     },
     {
         path: 'img/6.jpg',
@@ -37,7 +37,7 @@ export const images = [
     {
         path: 'img/7.jpg',
         alt: 'Trabant',
-        caption: 'Muy cerca de un lugar en donde residí.'
+        caption: '"Trabbi" muy cerca de un lugar en donde residí.'
     },
     {
         path: 'img/8.jpg',
