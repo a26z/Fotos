@@ -17,17 +17,22 @@
 					<img id="modalimage" alt="Modal Image">
 				</figure>
 				<figcaption class="modal-caption"></figcaption>
-				<span class="prev">prev</span>
-				<span class="close">&times;</span>
-				<span class="next">next</span>
+				<nav class="modal-nav">
+					<!-- <span class="start"><< first</span> -->
+					<span class="prev">< prev.</span>
+					<span class="close">&times;</span>
+					<span class="next">next ></span>
+					<!-- <span class="end">last >></span> -->
+				</nav>
 			</section>
 		</article>
 		<div id="test"></div>
 	</main>
 	<!-- ============== Javascript ============== -->
 	<script type="module">
+
 		import { images, count } from './js/images.js';
-		console.log(count);
+
 		let docFragment = new DocumentFragment();
 
 		// ------------------------------------------------------------- gallery
@@ -56,6 +61,7 @@
 		const modal = document.querySelector(".modal");
 		const close = document.querySelector(".close");
 		const next = document.querySelector(".next");
+		const prev = document.querySelector(".prev");
 		let image = document.getElementById("modalimage");
 		let caption; // undefined
 
@@ -80,12 +86,10 @@
 		let nextImage = function() {
 			caption.parentNode.removeChild(caption);
 			let idx = images.findIndex(i => i.alt == image.alt); // OK
-			console.log(idx);
 			if(idx == count-1) {
 				image.src = images[0].path;
 				image.alt = images[0].alt;
 				image.caption = images[0].caption;
-				console.log("> 11");
 			}
 			 else {
 				image.src = images[idx+1].path;
@@ -95,8 +99,26 @@
 			caption = document.createTextNode(image.caption)
 			document.querySelector(".modal-caption").appendChild(caption);
 		}
-		
+
+		let prevImage = function() {
+			caption.parentNode.removeChild(caption);
+			let idx = images.findIndex(i => i.alt == image.alt); // OK
+			if(idx == 0) {
+				image.src = images[count-1].path;
+				image.alt = images[count-1].alt;
+				image.caption = images[count-1].caption;
+			}
+			 else {
+				image.src = images[idx-1].path;
+				image.alt = images[idx-1].alt;
+				image.caption = images[idx-1].caption;
+			}
+			caption = document.createTextNode(image.caption)
+			document.querySelector(".modal-caption").appendChild(caption);
+		}
+
 		next.addEventListener("click", nextImage);
+		prev.addEventListener("click", prevImage);
 
 		window.addEventListener("click", function(e) {
 			if(e.target === modal) modal.classList.toggle("show-modal")

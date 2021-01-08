@@ -2,22 +2,22 @@ export const images = [
     {
         path: 'img/0.jpg',
         alt: 'Dawn',
-        caption: 'Amanece a la salida del departamento.'
+        caption: 'Amanece relativamente tarde a la salida del departamento.'
     },
     {
         path: 'img/1.jpg',
         alt: 'Bolígrafos',
-        caption: 'Vaciados en algo más de un año.'
+        caption: 'Utilizados durante algo más de un año en un diario en el que solía escribir día a día.'
     },
     {
         path: 'img/2.jpg',
         alt: 'Building',
-        caption: 'A shot of a building that looks like a vessel.'
+        caption: 'A screenshot from a movie in which a building looks like a vessel.'
     },
     {
         path: 'img/3.jpg',
         alt: 'Hafenstadt',
-        caption: 'Hinter diesem Gebäude eine grausame Maschine.'
+        caption: 'Eine diabolische Call-Center-Maschine hinter diesem Gebaude.'
     },
     {
         path: 'img/4.jpg',
