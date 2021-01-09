@@ -17,7 +17,7 @@ export const images = [
     {
         path: 'img/3.jpg',
         alt: 'Hafenstadt',
-        caption: 'Eine diabolische Call-Center-Maschine hinter diesem Gebaude.'
+        caption: 'Eine diabolische Call-Center-Maschine rattert hinter diesem Gebaude.'
     },
     {
         path: 'img/4.jpg',
@@ -60,5 +60,3 @@ export const images = [
         caption: 'En la reciente actualidad.'
     }
 ]
-
-export const count = images.length;
