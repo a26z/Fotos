@@ -60,7 +60,7 @@ figure {
     color: #000;
     background-color: aliceblue;
     font-size: 14px;
-    margin-top: 0px;
+    margin-top: 17px;
     max-width: 67%;
 }
 
@@ -83,10 +83,19 @@ figure {
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.3s;
 }
 
-.modal-wrapper {
+/* .modal-wrapper {
     display: grid;
     justify-items: center;
     padding: 5px;
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    width: min-content;
+} */
+
+.modal-wrapper {
+    display: grid;
+    justify-items: center;
+    padding: 12px;
     background-color: aliceblue;
     border-radius: 0.5rem;
     width: min-content;
@@ -101,9 +110,11 @@ figure {
 }
 
 .content {
-    background-color: aliceblue;
-    padding: 10px 12px;
+    /* background-image: url('/img/3.jpg'); */
+    /* padding: 10px 12px; */
+    padding: 0;
     width: auto;
+    max-height: 480px;
 }
 
 .close {
@@ -127,4 +138,9 @@ figure {
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modal-image {
+    /* background-color: red; */
+    opacity: 0;
 }

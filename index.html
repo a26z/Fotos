@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html> 
 <html lang="de">
 
 <head>
@@ -19,13 +19,14 @@
 		<article class="modal">
 			<section class="modal-wrapper">
 				<figure class="content">
-					<img id="modalimage" alt="Modal Image">
+					<img id="modalimage" class="modal-image" alt="Modal Image">
 				</figure>
 				<figcaption class="modal-caption"></figcaption>
 				<nav class="modal-nav">
 					<!-- <span class="start"><< first</span> -->
-					<span class="prev">< prev.</span>
-					<span class="close">&times;</span>
+					<span class="prev">
+						< prev.</span> <span class="close">&times;
+					</span>
 					<span class="next">next ></span>
 					<!-- <span class="end">last >></span> -->
 				</nav>
@@ -68,14 +69,20 @@
 		const close = document.querySelector(".close");
 		const next = document.querySelector(".next");
 		const prev = document.querySelector(".prev");
-		let image = document.getElementById("modalimage");
+		const modalFigure = document.querySelector(".content");
+		const image = document.getElementById("modalimage");
+		const fadeOnLoad = function() {
+			this.style.transition ="opacity 0.5s";
+			this.style.opacity = "1";
+		};
+		image.addEventListener("load", fadeOnLoad);
 		let caption; // undefined
 
 		function toggleModal() {
 			if(caption) caption.parentNode.removeChild(caption);
 			image.src = this.src;
 			image.alt = this.alt;
-			document.querySelector(".content").appendChild(image);
+			modalFigure.appendChild(image);
 			caption = document.createTextNode(this.dataset.caption)
 			document.querySelector(".modal-caption").appendChild(caption);
 			modal.classList.toggle("show-modal");
@@ -90,8 +97,10 @@
 		});
 
 		let nextImage = function() {
+			image.removeAttribute("style");
 			caption.parentNode.removeChild(caption);
 			let idx = images.findIndex(i => i.alt == image.alt); // OK
+			modalFigure.style.backgroundImage = "url("+images[idx].path+")";
 			if(idx == count-1) {
 				image.src = images[0].path;
 				image.alt = images[0].alt;
@@ -107,8 +116,10 @@
 		}
 
 		let prevImage = function() {
+			image.removeAttribute("style");
 			caption.parentNode.removeChild(caption);
 			let idx = images.findIndex(i => i.alt == image.alt); // OK
+			modalFigure.style.backgroundImage = "url("+images[idx].path+")";
 			if(idx == 0) {
 				image.src = images[count-1].path;
 				image.alt = images[count-1].alt;
