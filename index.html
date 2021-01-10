@@ -1,4 +1,4 @@
-<!doctype html> 
+<!doctype html>
 <html lang="de">
 
 <head>
@@ -71,11 +71,13 @@
 		const prev = document.querySelector(".prev");
 		const modalFigure = document.querySelector(".content");
 		const image = document.getElementById("modalimage");
+
 		const fadeOnLoad = function() {
 			this.style.transition ="opacity 0.5s";
 			this.style.opacity = "1";
 		};
 		image.addEventListener("load", fadeOnLoad);
+
 		let caption; // undefined
 
 		function toggleModal() {
